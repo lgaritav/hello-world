@@ -10,9 +10,11 @@ pipelines:
     feature/*:
         - step:
             name: Build and Test
-            caches:
-              - node
+           # caches:
+            #  - node
             script:
+              - pwd
+              - ls -al
               - npm install
               - npm test
  # pull-request:
