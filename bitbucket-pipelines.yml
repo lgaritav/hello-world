@@ -10,8 +10,8 @@ pipelines:
     feature/*:
         - step:
             name: Build and Test
-            caches:
-              - node
+           # caches:
+            #  - node
             script:
               - npm install
               - npm test
