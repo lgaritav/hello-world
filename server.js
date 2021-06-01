@@ -2,7 +2,6 @@ var express = require('express')
 var app = express()
 	app.get('/', function (req, res) {   
 		res.send('Hello World!');
-		app.close();
 		process.exit(0);
 	});
 	app.get('/quit', function (req, res) {   
