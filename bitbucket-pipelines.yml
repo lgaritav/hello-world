@@ -13,6 +13,8 @@ pipelines:
            # caches:
             #  - node
             script:
+              - pwd
+              - ls -al
               - npm install
               - npm test
  # pull-request:
