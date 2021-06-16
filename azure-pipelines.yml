@@ -18,13 +18,17 @@ steps:
 - script: |
     npm install
     npm test
-    npm publish
   #  npm run build
   displayName: 'npm install and test'
 
+- task: CopyFiles@2
+  inputs:
+    Contents: 'build/**' # Pull the build directory (React)
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+    PathtoPublish: $(Build.ArtifactStagingDirectory)
     ArtifactName: 'artifactnodejs'
     publishLocation: 'Container'
   condition: succeededOrFailed()
