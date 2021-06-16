@@ -9,6 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+ Parameters.RestoreBuildProjects : '**/*.csproj'
+ Parameters.TestProjects: '**/*.csproj'
+ BuildConfiguration: 'Release'
+
 steps:
 - task: NodeTool@0
   inputs:
@@ -21,13 +26,43 @@ steps:
     npm test
   displayName: 'npm install and test'
 
-- task: CopyFiles@2
+  
+- task: NodeJs@2
+  displayName: Build
   inputs:
-    Contents: 'build/**' # Pull the build directory (React)
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    projects: '$(Parameters.RestoreBuildProjects)'
+    arguments: '--configuration $(BuildConfiguration)'
+
+- task: NodeJs@2
+  displayName: Test
+  inputs:
+    command: test
+    projects: '$(Parameters.TestProjects)'
+    arguments: '--configuration $(BuildConfiguration)'
+
+- task: NodeJs@2
+  displayName: Publish
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+    zipAfterPublish: True
+
+#- task: CopyFiles@2
+#  inputs:
+#    Contents: 'build/**' # Pull the build directory (React)
+ #   sourceFolder: $(build.sourcresdirectory)
+ #   TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
   inputs:
-    PathtoPublish: $(Build.ArtifactStagingDirectory)
+    PathtoPublish: '$(build.artifactstagingdirectory)'
     ArtifactName: 'www'
+    publishLocation: 'Container'
+  condition: succeededOrFailed()
+
+
+
+
   
