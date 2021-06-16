@@ -30,6 +30,4 @@ steps:
   inputs:
     PathtoPublish: $(Build.ArtifactStagingDirectory)
     ArtifactName: 'artifactnodejs'
-    publishLocation: 'Container'
-  condition: succeededOrFailed()
   
