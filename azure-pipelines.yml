@@ -10,8 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
- Parameters.RestoreBuildProjects : '**/*.csproj'
- Parameters.TestProjects: '**/*.csproj'
+ Parameters.RestoreBuildProjects : '**/*.js'
+ Parameters.TestProjects: '**/*.js'
  BuildConfiguration: 'Release'
 
 steps:
@@ -27,20 +27,20 @@ steps:
   displayName: 'npm install and test'
 
   
-- task: NodeJs@2
+- task: NodeTool@2
   displayName: Build
   inputs:
     projects: '$(Parameters.RestoreBuildProjects)'
     arguments: '--configuration $(BuildConfiguration)'
 
-- task: NodeJs@2
+- task: NodeTool@2
   displayName: Test
   inputs:
     command: test
     projects: '$(Parameters.TestProjects)'
     arguments: '--configuration $(BuildConfiguration)'
 
-- task: NodeJs@2
+- task: NodeTool@2
   displayName: Publish
   inputs:
     command: publish
