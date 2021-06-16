@@ -18,7 +18,7 @@ steps:
 - script: |
     npm install
     npm test
-  #  npm run build
+    npm run build
   displayName: 'npm install and test'
 
 - task: CopyFiles@2
@@ -29,5 +29,5 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: $(Build.ArtifactStagingDirectory)
-    ArtifactName: 'artifactnodejs'
+    ArtifactName: 'www'
   
