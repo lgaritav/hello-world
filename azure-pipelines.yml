@@ -20,3 +20,12 @@ steps:
     npm test
   #  npm run build
   displayName: 'npm install and test'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: 'artifactnodejs'
+    publishLocation: 'Container'
+  condition: succeededOrFailed()
+  
