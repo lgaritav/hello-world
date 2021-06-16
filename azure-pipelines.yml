@@ -23,7 +23,13 @@ steps:
 - script: |
     npm pack
   displayName: 'Package for release'
-  
+
+- task: Npm@1
+  inputs:
+    command: publish
+    publishRegistry: useFeed
+    publishFeed: ci-cd-nodejs/server.js
+
 - task: CopyFiles@2
   inputs:
     contents: '*.zip'
