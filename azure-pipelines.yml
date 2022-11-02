@@ -32,10 +32,16 @@ steps:
     npm install
   displayName: 'Install dependencies'
   condition: ne(variables.CACHE_RESTORED, 'true')
-  
+
 - script: |
     npm run-script build
   displayName: 'Build app'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: 'dist/**'
+    TargetFolder: '$(build.binariesdirectory)'
 
 - task: ArchiveFiles@2
   inputs:
