@@ -4,10 +4,13 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- feature/Dev
+- master
 
 pool:
   vmImage: ubuntu-latest
+
+variables:
+  CACHE_RESTORED: false
 
 steps:
 - task: NodeTool@0
@@ -25,8 +28,20 @@ steps:
   displayName: Cache node_modules
 
 - script: |
+    npm install -g @angular/cli
+    npm install
+  displayName: 'Install dependencies'
+  condition: ne(variables.CACHE_RESTORED, 'true')
+
+- script: |
     npm run-script build
   displayName: 'Build app'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: 'dist/**'
+    TargetFolder: '$(build.binariesdirectory)'
 
 - task: ArchiveFiles@2
   inputs:
@@ -40,7 +55,7 @@ steps:
   displayName: 'Publish Artifact'
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
-    ArtifactName: 'drop'
+    ArtifactName: 'drop2'
     publishLocation: 'Container'
   condition: succeededOrFailed()
   
