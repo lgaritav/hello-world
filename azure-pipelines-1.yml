@@ -24,6 +24,6 @@ steps:
     sourceGitRepositoryUri: '$(Build.Repository.Uri)'
     sourceGitRepositoryPersonalAccessToken: 'v7auw6otco77fmmgpgniaugvygvnss54synlw3lapluuqztc2xfq'
     sourceVerifySSLCertificate: false
-    destinationGitRepositoryUri: 'https://gitlab.com/RM_GBM/prueba-migracion1/prueba-migracion2/test'
+    destinationGitRepositoryUri: 'https://gitlab.com/RM_GBM/prueba-migracion1/prueba-migracion2/test.git'
     destinationGitRepositoryPersonalAccessToken: 'glpat-LfbxcxX4ZtPtAFQBfx78'
     destinationVerifySSLCertificate: false
