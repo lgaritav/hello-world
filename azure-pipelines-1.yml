@@ -14,7 +14,6 @@ steps:
   inputs:
     sourceGitRepositoryUri: '$(Build.Repository.Uri)'
     sourceGitRepositoryPersonalAccessToken: 'ejmi7wzcr4zel46z774coyrugvhjzwmv275livly2qqvbv5rsigq'
-    sourceGitRepositoryCloneDirectoryName: 'https://lgarita0971@dev.azure.com/lgarita0971/Demo%20Azure/_git/ci-cd-nodejs'
     sourceVerifySSLCertificate: false
     destinationGitRepositoryUri: 'https://gitlab.com/RM_GBM/prueba-migracion1/prueba-migracion2/test.git'
     destinationGitRepositoryPersonalAccessToken: 'glpat-LfbxcxX4ZtPtAFQBfx78'
