@@ -10,20 +10,21 @@ pool:
   vmImage: windows-latest
 
 steps:
-#- task: Mirror Repositories@1
-#  inputs:
-#    sourceType: true
-#    sourceURL: 'https://dev.azure.com/lgarita0971/Demo%20Azure/_git/ci-cd-nodejs'
-#    sourcePAT: 'v7auw6otco77fmmgpgniaugvygvnss54synlw3lapluuqztc2xfq'
-#    destinationType: true
-#    destinationURL: 'https://gitlab.com/RM_GBM/prueba-migracion1/prueba-migracion2/test'
-#    destinationPAT: 'glpat-LfbxcxX4ZtPtAFQBfx78'
-
-- task: mirror-git-repository-vsts-task@1
+- task: Mirror Repositories@1
   inputs:
-    sourceGitRepositoryUri: '$(Build.Repository.Uri)'
-    sourceGitRepositoryPersonalAccessToken: 'v7auw6otco77fmmgpgniaugvygvnss54synlw3lapluuqztc2xfq'
-    sourceVerifySSLCertificate: false
-    destinationGitRepositoryUri: 'https://gitlab.com/RM_GBM/prueba-migracion1/prueba-migracion2/test.git'
-    destinationGitRepositoryPersonalAccessToken: 'glpat-LfbxcxX4ZtPtAFQBfx78'
-    destinationVerifySSLCertificate: false
+    sourceType: true
+    sourceURL: 'https://lgarita0971@dev.azure.com/lgarita0971/Demo%20Azure/_git/ci-cd-nodejs'
+    sourcePAT: 'zbstxzoqxpah66umg3kvaslezptffr7ugpvn7ydyboghsnabhwgq'
+   # sourcePAT: 'v7auw6otco77fmmgpgniaugvygvnss54synlw3lapluuqztc2xfq'
+    destinationType: true
+    destinationURL: 'https://gitlab.com/RM_GBM/prueba-migracion1/prueba-migracion2/test'
+    destinationPAT: 'glpat-LfbxcxX4ZtPtAFQBfx78'
+
+#- task: mirror-git-repository-vsts-task@1
+#  inputs:
+#    sourceGitRepositoryUri: '$(Build.Repository.Uri)'
+#    sourceGitRepositoryPersonalAccessToken: 'v7auw6otco77fmmgpgniaugvygvnss54synlw3lapluuqztc2xfq'
+#    sourceVerifySSLCertificate: false
+#    destinationGitRepositoryUri: 'https://gitlab.com/RM_GBM/prueba-migracion1/prueba-migracion2/test.git'
+#    destinationGitRepositoryPersonalAccessToken: 'glpat-LfbxcxX4ZtPtAFQBfx78'
+#    destinationVerifySSLCertificate: false
