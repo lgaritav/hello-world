@@ -10,10 +10,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: CmdLine@2
+- task: Mirror Repositories@1
   inputs:
-    script: |
-      git clone --bare https://lgarita0971@dev.azure.com/lgarita0971/Demo%20Azure/_git/ci-cd-nodejs
-      dir
-      cd ci-cd-nodejs.git
-      git push --mirror https://gitlab.com/RM_GBM/prueba-migracion1/prueba-migracion2/test.git
+    sourceType: true
+    sourceURL: 'https://lgarita0971@dev.azure.com/lgarita0971/Demo%20Azure/_git/ci-cd-nodejs'
+    sourcePAT: 'v7auw6otco77fmmgpgniaugvygvnss54synlw3lapluuqztc2xfq'
+    destinationType: true
+    destinationURL: 'https://gitlab.com/RM_GBM/prueba-migracion1/prueba-migracion2/test.git'
+    destinationPAT: 'glpat-LfbxcxX4ZtPtAFQBfx78'
