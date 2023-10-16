@@ -13,7 +13,7 @@ steps:
 - task: Mirror Repositories@1
   inputs:
     sourceType: true
-    sourceURL: 'https://lgarita0971@dev.azure.com/lgarita0971/Demo%20Azure/_git/ci-cd-nodejs'
+    sourceURL: 'https://dev.azure.com/lgarita0971/Demo%20Azure/_git/ci-cd-nodejs'
     sourcePAT: 'v7auw6otco77fmmgpgniaugvygvnss54synlw3lapluuqztc2xfq'
     destinationType: true
     destinationURL: 'https://gitlab.com/RM_GBM/prueba-migracion1/prueba-migracion2/test.git'
