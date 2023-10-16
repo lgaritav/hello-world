@@ -12,7 +12,7 @@ pool:
 steps:
 - task: mirror-git-repository-vsts-task@1
   inputs:
-    sourceGitRepositoryUri: 'https://lgarita0971@dev.azure.com/lgarita0971/Demo%20Azure/_git/ci-cd-nodejs'
+    sourceGitRepositoryUri: '$(Build.Repository.Uri)'
     sourceGitRepositoryPersonalAccessToken: 'ejmi7wzcr4zel46z774coyrugvhjzwmv275livly2qqvbv5rsigq'
     sourceGitRepositoryCloneDirectoryName: 'https://lgarita0971@dev.azure.com/lgarita0971/Demo%20Azure/_git/ci-cd-nodejs'
     sourceVerifySSLCertificate: false
