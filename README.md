@@ -73,6 +73,8 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 - Profile page (URL: /#/profile/:username, /#/profile/:username/favorites )
     - Show basic user info
     - List of articles populated from author's created articles or author's favorited articles
+ 
+    - Hola mundo
 
 
 <br />
