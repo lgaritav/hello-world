@@ -74,7 +74,6 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
     - Show basic user info
     - List of articles populated from author's created articles or author's favorited articles
  
-    - Hola mundo
 
 
 <br />
@@ -84,3 +83,4 @@ prueba mirror
 prueba 2 mirror
 prueba 3 mirror
 prueba 4 mirror
+Hola mundo....
