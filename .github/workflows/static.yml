@@ -1,10 +1,9 @@
 name: Test pipelines
 
 on:
- pull_request:
+  pull_request:
     branches: ["master"]
- workflow_dispatch:
-
+  workflow_dispatch:
 
 # Jobs a ejecutar
 jobs:
@@ -19,6 +18,3 @@ jobs:
       # Paso 2: Imprimir "Hello World"
       - name: Print Hello World
         run: echo "Hello World"
-}
- 
- 
