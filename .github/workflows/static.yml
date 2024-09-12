@@ -2,7 +2,7 @@
 name: Test pipelines
 
 on:
-  # Runs on pushes targeting the default branch
+
  pull_request:
     branches: ["master"]
 
